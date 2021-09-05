@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-const LotteryItem = () => {
-
+const LotteryItem = (props) => {
+  const { mask, area, prize } = props;
   return (
-    <div className='item-style'>1</div>
+    <div className={[mask,area,'item-style'].join(' ')}>奖品{prize}</div>
   )
 }
 

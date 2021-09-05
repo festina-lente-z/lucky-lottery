@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import LotteryItem from './LotteryItem';
 
 const getStorageMask = () => {
   let mask = 'no-mask';
@@ -8,21 +9,17 @@ const getStorageMask = () => {
   return mask
 }
 const Lottery = () => {
+  const numbers = [0,1,2,3,4,5,6,7];
   const [ mask, setMask ] = useState('no-mask');
   const handleLotteryStart = () => {
     mask === 'no-mask' ? setMask('is-mask') : setMask('no-mask')
   }
   return (
     <div className='wrapper'>
-      <div className={[mask,'item-style'].join(' ')}>奖品</div>
-      <div className={[mask,'item-style'].join(' ')}>奖品</div>
-      <div className={[mask,'item-style'].join(' ')}>奖品</div>
-      <div className={[mask,'item-style'].join(' ')}>奖品</div>
-      <button className='btn-child' onClick={handleLotteryStart}>抽奖</button>
-      <div className={[mask,'item-style'].join(' ')}>奖品</div>
-      <div className={[mask,'item-style'].join(' ')}>奖品</div>
-      <div className={[mask,'item-style'].join(' ')}>奖品</div>
-      <div className={[mask,'item-style'].join(' ')}>奖品</div>
+      {numbers.map((item,index)=>{
+        return <LotteryItem mask={mask} key={index} area={'item'+item} prize={item}/>
+      })}
+      <button className='btn-child item8' onClick={handleLotteryStart}>抽奖</button>
     </div>
     
   )

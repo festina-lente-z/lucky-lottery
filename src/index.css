@@ -1,3 +1,32 @@
+.item0 {
+  grid-area: top-left;
+}
+.item1 {
+  grid-area: top;
+}
+.item2 {
+  grid-area: top-right;
+}
+.item3 {
+  grid-area: center-right;
+}
+.item4 {
+  grid-area: bottom-right;
+}
+.item5 {
+  grid-area: bottom;
+}
+.item6 {
+  grid-area: bottom-left;
+}
+.item7 {
+  grid-area: center-left;
+}
+.item8 {
+  grid-area: center;
+}
+
+
 .wrapper {
   display: grid;
   grid-template-columns: 100px 100px 100px;
@@ -7,7 +36,12 @@
   width: 320px;
   padding: 15px;
   border-radius: 6px;
+  grid-template-areas: 
+    "top-left top top-right"
+    "center-left center center-right"
+    "bottom-left bottom bottom-right";
 }
+
 .is-mask {
   --clr-bcg: hsl(43, 100%, 83%);
 }
