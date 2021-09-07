@@ -46,20 +46,35 @@ const mockData = [
 
 const Lottery = () => {
   // 当前转动的次数
-  let currentIndex = 0;
+  // let currentIndex = 0;
   let count = 0;
   let speed = 50;
-  const [ mask, setMask ] = useState({mask:'no-mask',id:0});
+  // 遮罩
+  const [ mask, setMask ] = useState(mockData);
+  // 当前转动次数
+  const [currentIndex, setCurrentIndex] = useState(0);
   const handleLotteryStart = () => {
     // mask === 'no-mask' ? setMask('is-mask') : setMask('no-mask')
     const currentItem = currentIndex % 8;
-    currentIndex += 1;
-    mockData.forEach(item => {
-      const {id, mask} = item;
-      mask = id == currentItem ? 'is-mask' : 'no-mask'
-    });
-
-  }
+    setMask(preItem => preItem.map(item => {
+      if (item.id === currentItem) {
+        item.mask = 'is-mask';
+      } else {
+        item.mask = 'no-mask';
+      }
+      return item
+    }));
+    // 控制旋转次数
+    currentIndex<150 ? setCurrentIndex(currentIndex+1) : setCurrentIndex(0);
+  };
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (currentIndex) {
+        handleLotteryStart();
+      }
+    }, speed)
+    return () => clearTimeout(timeout)
+  },[currentIndex]);
   return (
     <div className='wrapper'>
       {mockData.map((item,index)=>{
