@@ -12,35 +12,43 @@ const getStorageMask = () => {
 const mockData = [
   {
     mask: "no-mask",
-    id: 0
+    id: 0,
+    rate: 0.1
   },
   {
     mask: "no-mask",
-    id: 1
+    id: 1,
+    rate: 0.2
   },
   {
     mask: "no-mask",
-    id: 2
+    id: 2,
+    rate: 0.1
   },
   {
     mask: "no-mask",
-    id: 3
+    id: 3,
+    rate: 0.2
   }, 
   {
     mask: "no-mask",
-    id: 4
+    id: 4,
+    rate: 0.1
   },
   {
     mask: "no-mask",
-    id: 5
+    id: 5,
+    rate: 0.1
   },
   {
     mask: "no-mask",
-    id: 6
+    id: 6,
+    rate: 0.1
   },
   {
     mask: "no-mask",
-    id: 7
+    id: 7,
+    rate: 0.1
   }
 ];
 
