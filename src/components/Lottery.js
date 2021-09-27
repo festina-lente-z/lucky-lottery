@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import LotteryItem from './LotteryItem';
 
+
 const getStorageMask = () => {
   let mask = 'no-mask';
   if (localStorage.getItem('mask')) {
@@ -65,7 +66,8 @@ const Lottery = () => {
     // mask === 'no-mask' ? setMask('is-mask') : setMask('no-mask')
     const currentItem = currentIndex % 8;
     setMask(preItem => preItem.map(item => {
-      if (item.id === currentItem) {
+      const {id} = item;
+      if (id === currentItem) {
         item.mask = 'is-mask';
       } else {
         item.mask = 'no-mask';
@@ -84,12 +86,12 @@ const Lottery = () => {
     return () => clearTimeout(timeout)
   },[currentIndex]);
   return (
-    <div className='wrapper'>
+    <div className='lott-wrapper'>
       {mockData.map((item,index)=>{
         const {mask, id} = item
         return <LotteryItem mask={mask} key={index} area={'item'+id} prize={id}/>
       })}
-      <button className='btn-child item8' onClick={handleLotteryStart}>抽奖</button>
+      <button className='btn-child item8' onClick={handleLotteryStart}>抽奖</button>  
     </div>
     
   )

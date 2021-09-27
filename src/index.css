@@ -1,3 +1,5 @@
+@import '~antd/dist/antd.css';
+
 .item0 {
   grid-area: top-left;
 }
@@ -27,7 +29,7 @@
 }
 
 
-.wrapper {
+.lott-wrapper {
   display: grid;
   grid-template-columns: 100px 100px 100px;
   grid-template-rows: 100px 100px 100px;
